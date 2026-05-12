@@ -9,7 +9,7 @@ namespace rpi_pca9685_hw_controller {
     struct Pca9685PiHwInterface : public hardware_interface::SystemInterface {
         Pca9685PiHwInterface() = default;
 
-        CallbackReturn on_init(const hardware_interface::HardwareInfo &info) override;
+        hardware_interface::CallbackReturn on_init(const hardware_interface::HardwareComponentInterfaceParams & params) override;
 
         std::vector<hardware_interface::StateInterface> export_state_interfaces() override;
 

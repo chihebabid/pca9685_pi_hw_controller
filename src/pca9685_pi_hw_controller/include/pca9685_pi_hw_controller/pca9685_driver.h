@@ -9,10 +9,15 @@
 namespace rpi_pca9685_hw_controller {
     constexpr uint8_t PCA9685_MODE1  {0x0};
     constexpr uint8_t  PCA9685_PRESCALE {0xFE};
+    constexpr uint8_t LED0_ON_L {0x6};
+    constexpr uint8_t LED0_ON_H {0x7};
+    constexpr uint8_t LED0_OFF_L {0x8};
+    constexpr uint8_t LED0_OFF_H {0x9};
     struct Pca9685Driver {
         Pca9685Driver(uint8_t i2c_bus, uint8_t i2c_address,uint8_t freq=50);
         void set_servo_degree(uint8_t channel, uint8_t degree);
         void set_pulsewidth_min_max(uint16_t min, uint16_t max);
+        void set_pulse_width(uint8_t channel, uint16_t pw);
     private:
         void set_pwm_frequency(uint8_t freq);
         std::unique_ptr<I2cDriver> i2c_driver_;

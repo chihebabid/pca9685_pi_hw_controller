@@ -4,8 +4,11 @@
 #include "pca9685_pi_hw_controller/pca9685_pi_hw_interface.h"
 
 namespace rpi_pca9685_hw_controller {
-    hardware_interface::CallbackReturn Pca9685PiHwInterface::on_init(const hardware_interface::HardwareInfo &info) {
-        if (hardware_interface::SystemInterface::on_init(info) != CallbackReturn::SUCCESS) {
+
+
+    hardware_interface::CallbackReturn Pca9685PiHwInterface::on_init(const hardware_interface::HardwareComponentInterfaceParams & params)
+    {
+        if (hardware_interface::SystemInterface::on_init(params) != CallbackReturn::SUCCESS) {
             return CallbackReturn::ERROR;
         }
         return CallbackReturn::SUCCESS;
