@@ -60,13 +60,26 @@ namespace rpi_pca9685_hw_controller {
     std::vector<hardware_interface::StateInterface> Pca9685PiHwInterface::export_state_interfaces() {
         RCLCPP_DEBUG(rclcpp::get_logger("Pca9685PiHwInterface"), "Export state interfaces");
         std::vector<hardware_interface::StateInterface> state_interfaces;
-        for (size_t i = 0; i < info_.joints.size(); i++)   {
-
+        for (size_t i {}; i < joints_config_.size(); ++i) {
+            state_interfaces.emplace_back(joints_config_[i].name, "position", &hw_states_[i]);
         }
-
-
-
         return state_interfaces;
+    }
+
+    std::vector<hardware_interface::CommandInterface> Pca9685PiHwInterface::export_command_interfaces() {
+        RCLCPP_DEBUG(rclcpp::get_logger("Pca9685PiHwInterface"), "Export command interfaces");
+        std::vector<hardware_interface::CommandInterface> command_interfaces;
+        for (size_t i {}; i < joints_config_.size(); ++i) {
+            command_interfaces.emplace_back(joints_config_[i].name, "position", &hw_commands_[i]);
+        }
+        return command_interfaces;
+    }
+
+    hardware_interface::return_type Pca9685PiHwInterface::read(const rclcpp::Time &,const rclcpp::Duration &) {
+        for (size_t i{}; i < joints_config_.size(); ++i) {
+            hw_states_[i] = hw_commands_[i];
+        }
+        return hardware_interface::return_type::OK;
     }
 
 }
