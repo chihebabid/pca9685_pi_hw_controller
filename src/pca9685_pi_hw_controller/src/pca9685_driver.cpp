@@ -46,6 +46,13 @@ namespace rpi_pca9685_hw_controller {
         i2c_driver_->write_byte(LED0_ON_L+4*channel + 3, pw>>8);
     }
 
+    void Pca9685Driver::set_all_pulse_width(uint16_t pw) {
+        i2c_driver_->write_byte(ALL_LED_ON_L, 0);
+        i2c_driver_->write_byte(ALL_LED_ON_H, 0);
+        i2c_driver_->write_byte(ALL_LED_OFF_L, off & 0xFF);
+        i2c_driver_->write_byte(ALL_LED_OFF_H, off >> 8);
+    }
+
     void Pca9685Driver::set_pulsewidth_min_max(uint16_t min, uint16_t max) {
         pulse_width_min_ = min;
         pulse_width_max_ = max;
