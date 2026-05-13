@@ -9,7 +9,7 @@ def generate_launch_description():
 
     ld = LaunchDescription()
     pkg_share = FindPackageShare('pi_hw_controller')
-    xacro_path = 'urdf/robot_with_pca9685.urdf.xacro'
+    xacro_path = 'urdf/robot_with_pca9685.urdf'
 
     robot_description = PathJoinSubstitution([
         get_package_share_directory('demos_pca9685_hw_controller'),
