@@ -1,5 +1,3 @@
-# AGENTS.md - AI Coding Agent Guidelines for pca9685_pi_hw_controller
-
 ## Architecture Overview
 This is a ROS2 hardware interface package for Raspberry Pi, implementing `hardware_interface::SystemInterface` to control PCA9685 16-channel PWM driver over I2C. Core components include:
 - **Hardware interface**: `Pca9685PiHwInterface` exports command/state interfaces for servo joints, mapping position commands to PWM pulses
