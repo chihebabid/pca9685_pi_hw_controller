@@ -10,7 +10,7 @@ Prerequisites
 
 Quick start
 -----------
-1. In one terminal (on the machine that will run the robot / controller manager) run the launch:
+1. In one terminal (on the Raspberry Pi) run the launch:
 
     ros2 launch demos_pca9685_hw_controller robot_3servo.launch.py
 
