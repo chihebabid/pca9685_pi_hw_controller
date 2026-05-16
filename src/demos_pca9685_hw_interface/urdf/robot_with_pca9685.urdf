@@ -50,9 +50,9 @@
       <state_interface name="position"/>
       <param name="channel">0</param>
       <param name="min_pulse_us">500</param>
-      <param name="max_pulse_us">2500</param>
-      <param name="min_angle_deg">0</param>
-      <param name="max_angle_deg">180</param>
+      <param name="max_pulse_us">2400</param>
+      <param name="min_angle_deg">10</param>
+      <param name="max_angle_deg">170</param>
     </joint>
 
 
@@ -60,10 +60,10 @@
       <command_interface name="position"/>
       <state_interface name="position"/>
       <param name="channel">1</param>
-      <param name="min_pulse_us">1000</param>
-      <param name="max_pulse_us">2000</param>
-      <param name="min_angle_deg">0</param>
-      <param name="max_angle_deg">180</param>
+      <param name="min_pulse_us">500</param>
+      <param name="max_pulse_us">2400</param>
+      <param name="min_angle_deg">10</param>
+      <param name="max_angle_deg">170</param>
     </joint>
 
 
@@ -71,11 +71,10 @@
       <command_interface name="position"/>
       <state_interface name="position"/>
       <param name="channel">2</param>
-      <param name="min_pulse_us">600</param>
+      <param name="min_pulse_us">500</param>
       <param name="max_pulse_us">2400</param>
       <param name="min_angle_deg">0</param>
       <param name="max_angle_deg">90</param>
     </joint>
   </ros2_control>
-
 </robot>

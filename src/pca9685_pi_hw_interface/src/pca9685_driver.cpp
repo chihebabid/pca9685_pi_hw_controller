@@ -5,7 +5,6 @@
 #include "pca9685_pi_hw_interface/pca9685_driver.h"
 #include <chrono>
 #include <thread>
-#include <algorithm>
 
 using namespace std::chrono_literals;
 namespace rpi_pca9685_hw_interface {

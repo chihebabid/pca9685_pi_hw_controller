@@ -103,7 +103,8 @@ namespace rpi_pca9685_hw_interface {
 
     double Pca9685PiHwInterface::angle_to_pulse_width(const JointConfigData&  joint) const {
         double degree {std::clamp<double>(joint.data.hw_command, joint.min_angle, joint.max_angle)};
-        return ((joint.max_pulse_us - joint.min_pulse_us) * degree / (joint.max_angle-joint.min_angle)) + joint.min_pulse_us;
+        double duration_us= ((joint.max_pulse_us - joint.min_pulse_us) * degree / (joint.max_angle-joint.min_angle)) + joint.min_pulse_us;
+        return (duration_us/((1.0/pwm_frequency_)*1'000'000))*4096;
     }
 
 }
