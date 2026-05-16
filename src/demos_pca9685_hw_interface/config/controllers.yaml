@@ -17,8 +17,8 @@ controller_manager:
 forward_position_controller:
   ros__parameters:
     joints:
-      - servo_pan
-      - servo_tilt
-      - gripper
+      - servo_pan_joint
+      - servo_tilt_joint
+      - gripper_joint
 
     interface_name: position
